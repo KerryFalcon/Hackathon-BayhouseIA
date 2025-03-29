@@ -1,0 +1,37 @@
+{
+  "Text": "personalized_questions",
+  "Timestamp": "2025-03-29T11:34:09.681663",
+  "AdditionalData": {
+    "usuario": "Juan Pérez",
+    "datos": {
+      "preguntas": [
+        {
+          "categoria": "temperatura",
+          "pregunta": "¿Prefieres mantener tu temperatura interior actual de 18°C o preferirías ajustarla?",
+          "descripcion": "Basado en tu temperatura interior actual de 18°C"
+        },
+        {
+          "categoria": "actividad_fisica",
+          "pregunta": "Actualmente realizas 25 minutos de actividad física. ¿Qué actividades te gustaría incorporar para llegar a 30 minutos?",
+          "descripcion": "Considerando tu nivel de actividad física Moderada"
+        },
+        {
+          "categoria": "alimentacion",
+          "pregunta": "Tu alimentación actual tiene una calificación de 7/10. ¿Qué aspecto específico te gustaría mejorar?",
+          "descripcion": "Con base en tu calificación actual de alimentación (7/10)"
+        },
+        {
+          "categoria": "ruido",
+          "pregunta": "Con un nivel de ruido de 35dB, ¿cómo afecta esto a tu concentración durante el día?",
+          "descripcion": "Tomando en cuenta tu nivel de ruido actual (35dB)"
+        },
+        {
+          "categoria": "iluminacion",
+          "pregunta": "¿El nivel de luz actual de 400 lux es cómodo para tus actividades principales?",
+          "descripcion": "Considerando tu nivel de luz actual (400 lux)"
+        }
+      ],
+      "respuestas": []
+    }
+  }
+}

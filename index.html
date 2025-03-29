@@ -1,0 +1,42 @@
+// Este html es un ejemplo de cómo conectar un cliente JavaScript a un servidor SignalR.
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SignalR Test</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+</head>
+<body>
+  <h1>SignalR Test</h1>
+  <button onclick="sendMessage()">Send Message</button>
+  <ul id="messages"></ul>
+
+  <script>
+    // Replace with your hub URL
+    const connection = new signalR.HubConnectionBuilder()
+      .withUrl("https://backendhackathon202520250328210710.azurewebsites.net/hubs/gemini")
+      .configureLogging(signalR.LogLevel.Information)
+      .build();
+
+    // Receive message from server
+    connection.on("ReceiveMessage", (user, message) => {
+      const msg = `${user}: ${message}`;
+      const li = document.createElement("li");
+      li.textContent = msg;
+      document.getElementById("messages").appendChild(li);
+    });
+
+    // Start connection
+    connection.start()
+      .then(() => {
+        console.log("Connected to SignalR");
+      })
+      .catch(err => console.error("Connection failed: ", err));
+
+    // Send a message to the hub
+    function sendMessage() {
+      connection.invoke("SendMessage", "JSClient", "Hello from JavaScript!")
+        .catch(err => console.error(err.toString()));
+    }
+  </script>
+</body>
+</html>

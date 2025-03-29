@@ -1,0 +1,45 @@
+using System;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.SignalR.Client;
+using Newtonsoft.Json;
+
+class Program
+{
+    static async Task Main(string[] args)
+    {
+        // URL del hub de SignalR
+        string url = "https://backendhackathon202520250328210710.azurewebsites.net/hubs/gemini";
+
+        // Crear la conexión al hub
+        var connection = new HubConnectionBuilder()
+            .WithUrl(url)
+            .WithAutomaticReconnect()
+            .Build();
+
+        try
+        {
+            // Iniciar la conexión
+            await connection.StartAsync();
+            Console.WriteLine("Conectado al hub de SignalR!");
+
+            // El mensaje que se va a enviar
+            string user = "Usuario de ejemplo";
+            string message = "Hola desde C#!";
+
+            // Invocar el método en el hub (sustituir "SendMessage" con el nombre real del método en tu hub)
+            await connection.InvokeAsync("SendMessage", user, message);
+            Console.WriteLine("Mensaje enviado exitosamente.");
+
+            // Esperar input del usuario antes de cerrar
+            Console.WriteLine("Presiona cualquier tecla para salir...");
+            Console.ReadKey();
+
+            // Cerrar la conexión
+            await connection.StopAsync();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error: {ex.Message}");
+        }
+    }
+}

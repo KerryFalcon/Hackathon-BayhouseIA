@@ -1,0 +1,6 @@
+@echo off
+echo Generating JSON data with Python...
+python generate_data.py
+echo Running C# SignalR application...
+dotnet run
+pause
