@@ -37,10 +37,9 @@ class Program
             await connection.StartAsync();
             Console.WriteLine("Successfully connected to the hub");
             
-            // 3. Send the JSON message
-            string user = "Usuario de ejemplo";
-            Console.WriteLine("Sending JSON message...");
-            await connection.InvokeAsync("SendMessage", user, jsonMessage);
+            // 3. Send the JSON message using ProcessPersonalizedQuestions with a single parameter
+            Console.WriteLine("Sending JSON message using ProcessPersonalizedQuestions...");
+            await connection.InvokeAsync("ProcessPersonalizedQuestions", jsonMessage);
             
             Console.WriteLine("Message sent successfully!");
             Console.WriteLine("JSON content (truncated):");

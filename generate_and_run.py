@@ -271,7 +271,7 @@ def format_endpoint_data(endpoint_data):
 def get_example_data():
     """Devuelve datos de ejemplo para el usuario."""
     return {
-        "nombre": "Juan Pérez",
+        "nombre": "Marco",
         "edad": 30,
         "actividad_fisica": "Moderada",
         "alimentacion": 7,
